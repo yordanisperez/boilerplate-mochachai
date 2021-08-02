@@ -44,7 +44,7 @@ suite('Unit Tests', function () {
       assert.notStrictEqual(6, '6',"Type String !== Type Number");
       assert.strictEqual(6, 3 * 2,"Type number === number 6===6");
       assert.strictEqual(6 * '2', 12,"6*'2'===number 12===12 ");
-      assert.notEqual([1, 'a', {}], [1, 'a', {}],"Not compared array");
+      assert.notStrictEqual([1, 'a', {}], [1, 'a', {}],"Not compared array");
     });
     // #7
     test('#deepEqual, #notDeepEqual', function () {
