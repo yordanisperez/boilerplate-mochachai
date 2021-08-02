@@ -63,21 +63,21 @@ suite('Unit Tests', function () {
     // #8
     test('#isAbove, #isAtMost', function () {
       assert.isAtMost('hello'.length, 5,"===");
-      assert.isAtMost(1, 0,"1>0");
-      assert.isAtMost(Math.PI, 3,"3.14 >3");
-      assert.isAbove(1 - Math.random(), 1,"forever 1 - number(0-1)<1");
+      assert.isAbove(1, 0,"1>0");
+      assert.isAbove(Math.PI, 3,"3.14 >3");
+      assert.isAtMost(1 - Math.random(), 1,"forever 1 - number(0-1)<1");
     });
     // #9
     test('#isBelow, #isAtLeast', function () {
-      assert.fail('world'.length, 5);
-      assert.fail(2 * Math.random(), 0);
-      assert.fail(5 % 2, 2);
-      assert.fail(2 / 3, 1);
+      assert.isAtLeast('world'.length, 5);
+      assert.isAtLeast(2 * Math.random(), 0);
+      assert.isBelow(5 % 2, 2);
+      assert.isBelow(2 / 3, 1);
     });
     // #10
     test('#approximately', function () {
-      assert.fail(weirdNumbers(0.5), 1, 0);
-      assert.fail(weirdNumbers(0.2), 1, 0);
+      assert.approximately(weirdNumbers(0.5), 1, 0,"Not approximately");
+      assert.approximately(weirdNumbers(0.2), 1, 0,"Not approximately");
     });
   });
 
