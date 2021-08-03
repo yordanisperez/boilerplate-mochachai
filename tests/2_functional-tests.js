@@ -14,8 +14,8 @@ suite("Functional Tests", function () {
         .request(server)
         .get("/hello")
         .end(function (err, res) {
-          assert.fail(res.status, 200);
-          assert.fail(res.text, "hello Guest");
+          assert.equal(res.status, 200);
+          assert.equal(res.text, "hello Guest");
           done();
         });
     });
@@ -25,8 +25,8 @@ suite("Functional Tests", function () {
         .request(server)
         .get("/hello?name=xy_z")
         .end(function (err, res) {
-          assert.fail(res.status, 200);
-          assert.fail(res.text, "hello xy_z");
+          assert.equal(res.status, 200);
+          assert.equal(res.text, "hello xy_z");
           done();
         });
     });
@@ -37,14 +37,32 @@ suite("Functional Tests", function () {
         .put("/travellers")
 
         .end(function (err, res) {
-          assert.fail();
+          assert.equal(res.status, 200);
+          assert.equal(res,{
+            name: 'Cristoforo',
+            surname: 'Colombo',
+            dates: '1451 - 1506'
+          });
 
           done();
         });
     });
     // #4
     test('send {surname: "da Verrazzano"}', function (done) {
-      assert.fail();
+      chai
+      .request(server)
+      .put("/travellers")
+
+      .end(function (err, res) 
+      {    
+        assert.equal(res.status, 200);
+        assert.equal(res,{
+          name: 'Giovanni',
+          surname: 'da Verrazzano',
+          dates: '1485 - 1528'
+        })
+      });          
+
 
       done();
     });
