@@ -39,9 +39,10 @@ suite("Functional Tests", function () {
         .end(function (err, res) 
         {
           assert.equal(res.status, 200,"Status 200");
+          assert.equal(res.type,'application/json','The object responce is not application/json');         
           assert.equal(res.body.name,'Cristoforo',"The name is not Cristoforo");
           assert.equal(res.body.surname,'Colombo','The surname is not Colombo');
-          assert.equal(res.type,'application/json','The object responce is not application/json');
+         
           done();
         });
       
@@ -55,9 +56,10 @@ suite("Functional Tests", function () {
       .end(function (err, res) 
       {    
         assert.equal(res.status, 200,"Status 200");
+        assert.equal(res.type,'application/json','The object responce is not application/json');
         assert.equal(res.body.name,'Giovanni',"The name is not Giovanni");
         assert.equal(res.body.surname,'da Verrazzano','The surname is not da Verrazzano');
-        assert.equal(res.type,'application/json','The object responce is not application/json');
+        
         done();
       });          
      
