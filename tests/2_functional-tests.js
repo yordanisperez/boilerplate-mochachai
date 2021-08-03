@@ -36,16 +36,15 @@ suite("Functional Tests", function () {
         .request(server)
         .put("/travellers")
         .send({surname: "Colombo"})
-        .end(function (err, res) {
+        .end(function (err, res) 
+        {
           assert.equal(res.status, 200);
-          assert.equal(res,{
-            name: 'Cristoforo',
-            surname: 'Colombo',
-            dates: '1451 - 1506'
-          });
-
+          assert.equal(res.name,'Cristoforo');
+          assert.equal(res.surname,'Colombo');
+          assert.equal(res.type,'application/json');
           done();
         });
+      
     });
     // #4
     test('send {surname: "da Verrazzano"}', function (done) {
