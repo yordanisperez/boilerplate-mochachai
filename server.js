@@ -6,6 +6,7 @@ const cors = require('cors');
 const runner = require('./test-runner');
 
 const bodyParser = require('body-parser');
+const assert = require('zombie/lib/assert');
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
@@ -21,6 +22,7 @@ app.get('/hello', function (req, res) {
 
 const travellers = function (req, res) {
   let data = {};
+  
   if (req.body && req.body.surname) {
     switch (req.body.surname.toLowerCase()) {
       case 'polo':
