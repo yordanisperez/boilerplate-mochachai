@@ -35,7 +35,7 @@ suite("Functional Tests", function () {
       chai
         .request(server)
         .put("/travellers")
-
+        .send({surname: "Colombo"})
         .end(function (err, res) {
           assert.equal(res.status, 200);
           assert.equal(res,{
@@ -52,7 +52,7 @@ suite("Functional Tests", function () {
       chai
       .request(server)
       .put("/travellers")
-
+      .send({surname: "da Verrazzano"})
       .end(function (err, res) 
       {    
         assert.equal(res.status, 200);
